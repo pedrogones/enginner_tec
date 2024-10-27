@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'name' => 'Administrador',
             'email' => 'admin@gmail.com',
             'is_admin' => 1,
-            'password' => Hash::make('123456789'),
+            'password' => Hash::make('1234'),
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -29,12 +29,12 @@ class UserSeeder extends Seeder
             'name' => 'Teste',
             'email' => 'teste@gmail.com',
             'is_admin' => 0,
-            'password' => Hash::make('123456789'),
+            'password' => Hash::make('1234'),
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
-        
+
         $roles = Role::all();
 
         $userAdmin->roles()->saveMany($roles);

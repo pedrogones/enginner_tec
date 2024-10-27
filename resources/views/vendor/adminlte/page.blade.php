@@ -14,8 +14,8 @@
 @section('body')
     <div class="wrapper">
 
-        {{-- Preloader Animation --}}
-        @if($layoutHelper->isPreloaderEnabled())
+{{--         Preloader Animation --}}
+        @if(config('adminlte.preloader'))
             @include('adminlte::partials.common.preloader')
         @endif
 
