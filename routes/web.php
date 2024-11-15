@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,8 +53,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::put('/usuarios/{id}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('users.update');
     Route::delete('/usuarios/{id}', [App\Http\Controllers\Admin\UserController::class, 'destroy'])->name('users.delete');
     Route::get('/meu-perfil/{id}', [App\Http\Controllers\Admin\UserController::class, 'show'])->name('users.show');
-   
-   
+
+
     Route::post('/users.save-image', [App\Http\Controllers\Admin\UserController::class, 'saveImage'])->name('users.save-image');
 
 
@@ -63,6 +64,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
    ############## AUDITORIA ###############
    Route::get('/auditoria', [App\Http\Controllers\Admin\AcitivityLogController::class, 'index'])->name('logs.view');
+
+ ############## Clientes ###############
+ Route::get('/clientes', [\App\Http\Controllers\Admin\ClientController::class, 'index'])->name('client.view');
+ Route::get('/clientes/cadastro', [\App\Http\Controllers\Admin\ClientController::class, 'create'])->name('client.create');
+ Route::get('/clientes/{id}', [\App\Http\Controllers\Admin\ClientController::class, 'edit'])->name('client.edit');
+ Route::post('/clientes', [\App\Http\Controllers\Admin\ClientController::class, 'store'])->name('client.store');
+ Route::put('/clientes/{id}', [\App\Http\Controllers\Admin\ClientController::class, 'update'])->name('client.update');
+ Route::delete('/clientes/{id}', [\App\Http\Controllers\Admin\ClientController::class, 'destroy'])->name('client.delete');
+ Route::get('/meu-perfil/{id}', [\App\Http\Controllers\Admin\ClientController::class, 'show'])->name('client.show');
+
 
 });
 

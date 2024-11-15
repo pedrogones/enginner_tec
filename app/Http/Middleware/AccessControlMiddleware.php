@@ -23,7 +23,7 @@ class AccessControlMiddleware
         if (!in_array($routeName, $ignorePermissions)) {
             $this->authorize($routeName);
         }
-       
+
         $this->authorize($routeName);
 
         return $next($request);

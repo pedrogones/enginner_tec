@@ -329,23 +329,29 @@ return [
                     'can'  => 'users.view'
                 ],
                 [
+                    'text' => 'Clientes',
+                    'route'  => 'client.view',
+                    'icon' => 'nav-icon fas fa-users',
+                    'can'  => 'client.view'
+                ],
+                [
                     'text' => 'Perfis',
                     'route'  => 'roles.view',
                     'icon' => 'fas fa-edit',
                     'can'  => 'roles.view'
-                ],
+        ],
                 [
                     'text' => 'Permissoes',
                     'route'  => 'permissions.view',
                     'icon' => 'fas fa-fw fa-lock',
                     'can'  => 'permissions.view'
-                ],
+        ],
                 [
                     'text' => 'Auditoria',
                     'route'  => 'logs.view',
                     'icon' => 'nav-icon fas fa-book',
                     'can'  => 'logs.view'
-                ],
+        ],
             ],
         ],
     ],

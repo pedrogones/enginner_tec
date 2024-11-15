@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Lista de Usuários')
+@section('title', 'Lista de Clientes')
 
 @section('content_header')
 <h3></h3>
@@ -15,9 +15,9 @@
         @include('shared.error-message')
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Lista de usuários</h3>
-                @can('users.create')
-                <a href="{{route('users.create')}}" class="btn btn-sm btn-success float-right">NOVO USUÁRIO</a>
+                <h3 class="card-title">Lista de Clientes</h3>
+                @can('client.create')
+                <a href="{{route('client.create')}}" class="btn btn-sm btn-success float-right">NOVO CLIENTE</a>
                 @endcan
             </div>
 
@@ -39,7 +39,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse($users as $user)
+                                    @forelse($models as $user)
                                     <tr>
                                         <td>{{ $user->id}}</td>
                                         <td>{{ $user->name}}</td>
@@ -47,10 +47,10 @@
                                         <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
                                         <td>{{ $user->updated_at->format('d/m/Y H:i') }}</td>
                                         <td style="display: inline-block; width: 110px;">
-                                            @can('users.update')<a href="{{route('users.edit',[$user->id])}}"
+                                            @can('client.update')<a href="{{route('client.edit',[$user->id])}}"
                                                 class="btn btn-sm btn-success float-left">Editar</a>@endcan
-                                            @can('users.delete')
-                                            <form action="{{route('users.delete', $user->id)}}" method="post"
+                                            @can('client.delete')
+                                            <form action="{{route('client.delete', $user->id)}}" method="post"
                                                 class="delete-user">
                                                 @csrf
                                                 @method('DELETE')
@@ -62,7 +62,7 @@
 
                                     @empty
                                     <tr>
-                                        <td colspan="5"> Ainda não há Usuários cadastrados.</td>
+                                        <td colspan="5"> Ainda não há Clientes cadastrados.</td>
                                     </tr>
                                     @endforelse
                                 </tbody>
